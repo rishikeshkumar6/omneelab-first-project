@@ -49,7 +49,7 @@ async function register(req, res) {
 }
 
 async function login(req, res) {
-    // Implement your login logic here
+    
     try {
         const user = await User.findOne({ email: req.body.email,vendor:req.body.vendor });
          console.log(user)
@@ -91,7 +91,7 @@ async function login(req, res) {
 }
 
 async function otpVerification(req, res) {
-    // Implement your OTP verification logic here
+    
       try{
       if(req.body.otp==='1234'){
         console.log("insert data")
@@ -115,7 +115,7 @@ async function Home(req,res){
     const user = decoded.result;
 
     if (user) {
-      // Check user type and display appropriate dashboard message
+      
       const userTypeMessage = user.company === 'customer' ? 'This is a customer page.' : 'This is a space provider dashboard.';
       res.send({ message: `Welcome ${user.name}! ${userTypeMessage}` });
     } else {
